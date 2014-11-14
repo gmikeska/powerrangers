@@ -98,7 +98,6 @@ def fight_scene()
 	john = Person.new("John")
 	fred.caffeine_level = 100
 	john.caffeine_level = 100
-
 	fred.drink_coffee
 	john.drink_coffee
 
@@ -118,4 +117,5 @@ def fight_scene()
 
 
 end
+
 fight_scene()
