@@ -1,3 +1,4 @@
+#module 
 class Person
 	attr_reader :name
 	attr_accessor :caffeine_level
@@ -6,7 +7,7 @@ class Person
 	def initialize(name)
 		@name = name
 		@caffeine_level = 0
-
+		puts "#{@name} appears!"
 
 	end
 		
@@ -30,16 +31,19 @@ class PowerRanger < Person
 
 	@strength
 	@color
-	def init(color, strength)
+	def initialize(color, strength)
 		@color  = color
 		@name = "#{@color} Ranger"
+		@caffeine_level = 50
+		@strength = strength
+		puts "#{@name} appears!"
 
 	end
 	def punch (target) 
 		puts "Punching #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
-		target
+		target.caffeine_level-=1
 		@caffeine_level-=1
 	end
 
@@ -50,7 +54,7 @@ class PowerRanger < Person
 
 	def use_megazord(target)
 		s = @strength
-		@strength == 5000
+		@strength = 5000
 		punch (target)
 		@strength =  s
 
@@ -62,15 +66,16 @@ class EvilNinja < Person
 	@@ninjas = 0
 	@strength
 	@color
-	def init(evilness, strength)
+	def initialize(evilness, strength)
 		@strength = strength
+		@caffeine_level = strength*10
 		@@ninjas+=1
 		@name = "Evil Ninja #{@@ninjas}"
-
+		puts "#{@name} appears!"
 	end
 
 	def punch (target) 
-		puts "Punching #{target.name} with strength #{@strength}!"
+		puts "#{@name} punches #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
 		target
@@ -87,4 +92,30 @@ class EvilNinja < Person
 
 end
 
-puts "TEST"
+def fight_scene()
+
+	fred = Person.new("Fred")
+	john = Person.new("John")
+	fred.caffeine_level = 100
+	john.caffeine_level = 100
+
+	fred.drink_coffee
+	john.drink_coffee
+
+	ninja1 = EvilNinja.new(10, 10)
+	ninja2 = EvilNinja.new(10, 10)
+
+	tommy = PowerRanger.new("Green", 20)
+	chris = PowerRanger.new("Blue", 20)
+
+	ninja1.punch(fred)
+
+	tommy.punch(ninja1)
+	chris.use_megazord(ninja2)
+
+	ninja1.cause_mayhem(john)
+	puts "John's caffeine level is now at #{john.caffeine_level}."
+
+
+end
+fight_scene()
