@@ -2,7 +2,7 @@ module Fights
 
 
 	def punch (target) 
-		puts "(From Module) Punching #{target.name} with strength #{@strength}!"
+		puts "Punching #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
 		target.caffeine_level-=1
