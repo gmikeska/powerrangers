@@ -3,86 +3,86 @@ class Person
 	attr_accessor :caffeine_level
 	@name
 	@caffeine_level
-	def initialize(name) {
+	def initialize(name)
 		@name = name
 		@caffeine_level = 0
 
 
-	}
-		
 	end
-	def run {
+		
+
+	def run
 		puts "#{@name} runs away!" 
 
-	}
-	def scream {
+	end
+	def scream 
 		puts "#{@name} says AHHHH!"
 
-	}
-	def drink_coffee {
+	end
+	def drink_coffee 
 		@caffeine_level+=1
 		puts "#{@name} is drinking coffee. Caffeine Level is now #{@caffeine_level}."
 
-	}
+	end
 end
 
 class PowerRanger < Person
 
 	@strength
 	@color
-	def init(color, strength){
+	def init(color, strength)
 		@color  = color
 		@name = "#{@color} Ranger"
 
-	}
-	def punch (target) {
+	end
+	def punch (target) 
 		puts "Punching #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
 		target
 		@caffeine_level-=1
-	}
+	end
 
-	def rest {
+	def rest 
+		puts "#{@name} is resting."
 
+	end
 
-	}
-
-	def use_megazord(target){
+	def use_megazord(target)
 		s = @strength
 		@strength == 5000
 		punch (target)
 		@strength =  s
 
 
-	}
+	end
 end
 
 class EvilNinja < Person
 	@@ninjas = 0
 	@strength
 	@color
-	def init(evilness, strength){
+	def init(evilness, strength)
 		@strength = strength
 		@@ninjas+=1
 		@name = "Evil Ninja #{@@ninjas}"
 
-	}
+	end
 
-	def punch (target) {
+	def punch (target) 
 		puts "Punching #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
 		target
 		@caffeine_level-=1
-	}
+	end
 
-	def cause_mayhem(target){
+	def cause_mayhem(target)
 		puts "Causing mayhem @ #{target.name}."
 		target.caffeine_level = 0
 		@caffeine_level -= 5
 
-	}
+	end
 
 
 end
