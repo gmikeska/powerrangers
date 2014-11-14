@@ -1,13 +1,13 @@
 module Fights
 
+
 	def punch (target) 
-		puts "Punching #{target.name} with strength #{@strength}! (From Module)"
+		puts "(From Module) Punching #{target.name} with strength #{@strength}!"
 		target.scream()
 		target.run()
 		target.caffeine_level-=1
 		@caffeine_level-=1
 	end
-
 
 end
 
